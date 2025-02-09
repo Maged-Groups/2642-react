@@ -37,9 +37,10 @@ const App = () => {
     return (
         <>
             <TopNav />
-            <h1>Title</h1>
+            <h1>Main Title</h1>
             <ModalContainer />
 
+            <h2>Sub-Title</h2>
             <LoadingContainer />
 
             {/* Routing */}
