@@ -9,3 +9,6 @@ git add .
 
 # create a new commit
 git commit -m "The commit message"
+
+# check reposotory status
+git status
