@@ -1,6 +1,6 @@
 
 const GradeCircle = ({ data }) => {
-    console.log(data)
+    // console.log(data)
 
     const [grade, bg] = data;
 

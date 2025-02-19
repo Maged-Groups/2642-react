@@ -6,7 +6,7 @@ import Login from '@/components/auth/Login';
 
 const Modal = () => {
 
-    console.log('Modal rendered')
+    // console.log('Modal rendered')
 
     const { show_modal } = useSelector(store => store.appSlice)
 

@@ -21,7 +21,7 @@ function Products() {
 
             setTimeout(() => setProducts(data.products), 2000)
 
-            console.log(products)
+            // console.log(products)
         }
 
 

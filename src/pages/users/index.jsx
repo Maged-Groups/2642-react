@@ -4,7 +4,7 @@ const data = await res.json();
 
 const { users } = data
 
-console.log(users)
+// console.log(users)
 
 
 export default function Users() {

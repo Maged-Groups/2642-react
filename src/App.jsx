@@ -13,16 +13,36 @@ import { ToastContainer } from 'react-toastify';
 // redux
 import { useDispatch } from 'react-redux';
 import { rdx_login } from '@/redux/userSlice'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const App = () => {
+    const [isOnline, setIsOnline] = useState(window.navigator.onLine)
 
     const dispatch = useDispatch();
 
 
+    useEffect(() => {
+
+        const change_online_state = (state) => {
+            console.log('state', state)
+            setIsOnline(state)
+        }
+
+        window.addEventListener('online', () => change_online_state(true));
+        window.addEventListener('offline', () => change_online_state(false));
+
+        // return () => {
+        //     window.removeEventListener('online', change_online_state);
+        //     window.removeEventListener('offline', change_online_state);
+        // }
+
+    }, [])
+
     const jsonUserData = sessionStorage.user || localStorage.user;
 
 
-    console.log('jsonUserData', jsonUserData)
+    // console.log('jsonUserData', jsonUserData)
 
     if (jsonUserData) {
 
@@ -32,7 +52,7 @@ const App = () => {
 
     }
 
-    console.log('App rendered')
+    // console.log('App rendered')
 
     return (
         <>
@@ -48,6 +68,9 @@ const App = () => {
 
             <ToastContainer theme='dark' rtl={true} />
 
+            {
+                isOnline ? <p>ONLINE</p> : <p>OFFLINE</p>
+            }
 
         </>
     )

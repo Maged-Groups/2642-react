@@ -11,15 +11,15 @@ export function RemoveFromCart({ id }) {
 }
 
 export function AddToCart({ product, cart_items }) {
-    // console.log('product', product)
-    // console.log('cart_items', cart_items)
+    // // console.log('product', product)
+    // // console.log('cart_items', cart_items)
 
     const existingItem = cart_items.find(item => item.id === product.id)
 
     const qty = existingItem?.quantity || 0;
 
-    console.log('existingItem', existingItem)
-    console.log('qty', qty)
+    // console.log('existingItem', existingItem)
+    // console.log('qty', qty)
 
 
     const dispatch = useDispatch();

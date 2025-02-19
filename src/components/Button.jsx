@@ -1,6 +1,6 @@
 const Button = function ({ text, cssClass }) {
 
-    // console.log('Button Component Rendered', text)
+    // // console.log('Button Component Rendered', text)
 
 
     return (

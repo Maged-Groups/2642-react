@@ -33,7 +33,7 @@ const Login = () => {
         dispatch(rdx_set_is_loading(true));
 
         const jsonData = JSON.stringify({ username, password })
-        console.log(jsonData)
+        // console.log(jsonData)
 
 
         const api = 'https://dummyjson.com/auth/login';

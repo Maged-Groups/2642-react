@@ -22,6 +22,7 @@ import Cart from './cart'
 import ShowProduct from './products/ShowProduct'
 import { Suspense } from 'react'
 import { useSelector } from 'react-redux';
+import Category from './products/Category'
 
 
 const Products = lazy(() => import('./products'))
@@ -34,7 +35,7 @@ export default function Pages() {
   const { stat_loggedin } = useSelector(store => store.userSlice);
 
 
-  console.log('pages rendered')
+  // console.log('pages rendered')
   return (
 
     <Suspense fallback={<FullScreenLoading />}>
@@ -53,6 +54,7 @@ export default function Pages() {
 
         {/* products */}
         <Route path='/products' element={<Products />} />
+        <Route path='/products/category/:cat_slug' element={<Category />} />
         <Route path='/products/:id' element={<ShowProduct />} />
 
         {/* users */}

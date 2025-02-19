@@ -23,7 +23,7 @@ const userSlice = createSlice({
 
             // Navigate to home page
             
-            console.log('payload', payload)
+            // console.log('payload', payload)
             payload('/');
         },
     }

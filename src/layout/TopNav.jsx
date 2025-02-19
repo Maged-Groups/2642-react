@@ -11,22 +11,38 @@ import { FaCartShopping } from 'react-icons/fa6';
 import { BsCursor } from 'react-icons/bs';
 import { BiPointer } from 'react-icons/bi';
 import { rdx_logout } from '../redux/userSlice';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 export default function TopNav() {
+    const [categories, setCategories] = useState([]);
 
-    console.log('TopNav rendered')
+    // console.log('TopNav rendered')
 
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
-    
+
     const { stat_loggedin, stat_user } = useSelector(store => store.userSlice);
     const { items } = useSelector(store => store.cartSlice)
 
-    console.log(stat_loggedin)
+    // console.log(stat_loggedin)
 
-    console.log(useHref())
+    // console.log(useHref())
+
+
+    useEffect(() => {
+        const get_categories = async () => {
+            const res = await fetch('https://dummyjson.com/products/categories');
+            // console.log(res);
+
+            setCategories(await res.json());
+
+        }
+
+        get_categories();
+    }, [])
 
 
     return (
@@ -69,6 +85,14 @@ export default function TopNav() {
                     <Link className={styles.link} to="/">Home</Link>
                     <Link className={styles.link} to="/about">About</Link>
                     <Link className={styles.link} to="/products">Products</Link>
+                    <div className={`${styles.link} group`}>
+                        <span className='hover:' >Categories</span>
+                        <div className='absolute bg-slate-900 text-slate-300 hidden group-hover:grid gap-3 max-h-52 overflow-y-auto p-2'>
+                            {
+                                categories.map(cat => <Link key={cat.slug} className={styles.link} to={`/products/category/${cat.slug}`} >{cat.name}</Link>)
+                            }
+                        </div>
+                    </div>
                     <Link className={styles.link} to="/services">Services</Link>
                     {
                         stat_loggedin && <Link className={styles.link} to="/users">Users</Link>
