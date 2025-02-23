@@ -15,6 +15,8 @@ import { useDispatch } from 'react-redux';
 import { rdx_login } from '@/redux/userSlice'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import ShoppingCart from './components/ShoppingCart';
+import BarChart from './components/graphs/home/categories/BarChart';
 
 const App = () => {
     const [isOnline, setIsOnline] = useState(window.navigator.onLine)
@@ -57,12 +59,15 @@ const App = () => {
     return (
         <>
             <TopNav />
-            <h1>Main Title</h1>
-            <ModalContainer />
+            {/* <h1>Main Title</h1> */}
+            {/* <ModalContainer /> */}
 
-            <h2>Sub-Title</h2>
-            <LoadingContainer />
+            {/* <h2>Sub-Title</h2> */}
+            {/* <LoadingContainer /> */}
 
+            {/* <BarChart /> */}
+
+            {/* <ShoppingCart /> */}
             {/* Routing */}
             <Pages />
 

@@ -1,13 +1,16 @@
-const res = await fetch('https://dummyjson.com/users')
-
-const data = await res.json();
-
-const { users } = data
-
-// console.log(users)
-
+import React, { useEffect, useState } from 'react'
 
 export default function Users() {
+
+  const [users, setUsers] = useState(null);
+  useEffect(() => {
+    fetch('https://dummyjson.com/users')
+      .then(res => res.json())
+      .then(data => {
+        setUsers(data.users)
+      })
+  }, [])
+  if (!users) return <div>Loading...</div>
   return (
     <div>All USers</div>
   )
